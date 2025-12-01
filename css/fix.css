@@ -1,0 +1,117 @@
+/* ============================================ */
+/* CORRECCIONES FINALES - CENTRADO Y VISIBILIDAD */
+/* ============================================ */
+
+/* Ocultar por defecto todas las pantallas */
+#content1,
+#container {
+  display: none !important;
+}
+
+/* Mostrar solo cuando NO tiene clase oculto */
+#content1:not(.oculto),
+#container:not(.oculto) {
+  display: flex !important;
+  animation: fadeInScale 0.6s ease-out !important;
+}
+
+/* Asegurar que las fases de carta se muestren correctamente */
+.carta-fase {
+  display: none !important;
+  animation: fadeInScale 0.5s ease-out !important;
+}
+
+.carta-fase:not(.oculto) {
+  display: flex !important;
+}
+
+/* Habilitar todas las animaciones de flores */
+.flowers,
+.flower,
+.flower__leafs,
+.flower__leaf,
+.flower__light,
+.grow-ans,
+.growing-grass,
+.long-g,
+.leaf {
+  animation-play-state: running !important;
+}
+
+/* Z-index correcto */
+#carta-wrapper {
+  z-index: 50 !important;
+}
+
+#content1,
+#container {
+  z-index: 60 !important;
+}
+
+/* Asegurar centrado perfecto */
+#content1,
+#container,
+.carta-fase {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100vh !important;
+}
+
+#content1:not(.oculto),
+#container:not(.oculto) {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Posicionar flores en el centro */
+#container {
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.night {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+}
+
+.flowers {
+  position: absolute !important;
+  top: 85% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) scale(0.7) !important;
+  z-index: 4 !important;
+}
+
+/* Animaciones de transición */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación suave para títulos */
+.titulo-confirmacion,
+.nombre-destinatario,
+.greetings {
+  animation: slideDown 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
